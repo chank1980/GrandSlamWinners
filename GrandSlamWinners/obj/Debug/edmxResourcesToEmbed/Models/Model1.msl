@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PlayerModelStoreContainer" CdmEntityContainer="PlayerEntities3">
+    <EntitySetMapping Name="Players">
+      <EntityTypeMapping TypeName="PlayerModel.Player">
+        <MappingFragment StoreEntitySet="Player">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="M_F" ColumnName="M_F" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="AusOpenYYYY" ColumnName="AusOpenYYYY" />
+          <ScalarProperty Name="FreOpenYYYY" ColumnName="FreOpenYYYY" />
+          <ScalarProperty Name="WimOpenYYYY" ColumnName="WimOpenYYYY" />
+          <ScalarProperty Name="USOpenYYYY" ColumnName="USOpenYYYY" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,57 @@
+﻿@model GrandSlamWinners.Models.Player
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<hr />
+
+<div class="container">
+    <div class="col-xs-6">
+        <dl class="dl-horizontal form-horizontal">
+            <dt>@Html.DisplayNameFor(m => m.FirstName)</dt>
+            <dd>@Html.DisplayFor(m => m.FirstName)</dd>
+
+            <dt>@Html.DisplayNameFor(m => m.Surname)</dt>
+            <dd>@Html.DisplayFor(m => m.Surname)</dd>
+
+            <dt>@Html.DisplayNameFor(m => m.M_F)</dt>
+            <dd>@Html.DisplayFor(m => m.M_F)</dd>
+
+            <dt>@Html.DisplayNameFor(m => m.Country)</dt>
+            <dd>@Html.DisplayFor(m => m.Country)</dd>
+
+            <dt>@Html.DisplayNameFor(m => m.AusOpenYYYY)</dt>
+            <dd>@Html.DisplayFor(m => m.AusOpenYYYY)</dd>
+
+            <dt>@Html.DisplayNameFor(m => m.FreOpenYYYY)</dt>
+            <dd>@Html.DisplayFor(m => m.FreOpenYYYY)</dd>
+
+            <dt>@Html.DisplayNameFor(m => m.WimOpenYYYY)</dt>
+            <dd>@Html.DisplayFor(m => m.WimOpenYYYY)</dd>
+
+            <dt>@Html.DisplayNameFor(m => m.USOpenYYYY)</dt>
+            <dd>@Html.DisplayFor(m => m.USOpenYYYY)</dd>
+        </dl>
+        <p>
+            @Html.ActionLink("Edit", "EditPlayer", new { id = Model.Id }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+</div>
+    @*//Display player image*@
+    <div class="col-xs-6">
+        <br />
+        <div class="form-group">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-7 text-center">
+                <img src="@Url.Content(Model.ImageUrl)" height="180" style="border:double"/>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,89 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@*@model IEnumerable<GrandSlamWinners.Models.Player>
+    as pagination will use IPagedList *@
+
+@model IPagedList<GrandSlamWinners.Models.Player>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Grand Slam Winners</h2>
+
+@*Link for adding a new player to the db*@
+<div class="btn btn-default">
+    @Html.ActionLink("Add a player", "AddPlayer")
+</div>
+@using (Html.BeginForm())
+{
+    <p>
+        Gender:@Html.DropDownList("gender", "All")
+        Name:@Html.TextBox("SearchString")
+        <input type="submit" value="Filter"/>
+    </p>
+}
+
+
+
+<table class="table">
+    @*column heading for the table*@
+    <tr>
+        <th>  </th>
+        <th>            
+            @Html.DisplayNameFor(model => model.First().FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Surname)
+        </th>
+        <th>
+            Male/Female           
+        </th>        
+        <th>
+            @Html.DisplayNameFor(model => model.First().Country)
+        </th>
+        <th >
+            @Html.DisplayNameFor(model => model.First().AusOpenYYYY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().FreOpenYYYY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().WimOpenYYYY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().USOpenYYYY)
+        </th>
+        <th>  </th>
+    </tr>
+    
+    @*Display records below the heading*@
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td><img src="@Url.Content(item.ImageUrl)" height="80" width="65" /></td>
+            <td>@Html.DisplayFor(m => item.FirstName)</td>
+            <td>@Html.DisplayFor(m => item.Surname)</td>
+            <td>@Html.DisplayFor(m => item.M_F)</td>            
+            <td>@Html.DisplayFor(m => item.Country)</td>
+            <td>@Html.DisplayFor(m => item.AusOpenYYYY)</td>
+            <td>@Html.DisplayFor(m => item.FreOpenYYYY)</td>           
+            <td>@Html.DisplayFor(m => item.WimOpenYYYY)</td>
+            <td>@Html.DisplayFor(m => item.USOpenYYYY)</td>                        
+            
+            
+            
+            @*//add edit, display detail and delete options to each record*@            
+            <td>                
+                    @Html.ActionLink("Edit", "EditPlayer", new { id = item.Id })                
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })                 
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                
+            </td>   
+        </tr>
+       
+    }
+
+</table>
+@Html.PagedListPager(Model, page=>Url.Action("Index", new { page, searchString = ViewData["name"], gender = ViewData["sex"]}))

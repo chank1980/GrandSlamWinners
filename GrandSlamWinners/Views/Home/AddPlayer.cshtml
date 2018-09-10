@@ -1,0 +1,97 @@
+﻿@model GrandSlamWinners.Models.Player
+   
+@{
+    ViewBag.Title = "AddPlayer";
+}
+
+
+    <h2>AddPlayer</h2>
+    
+
+    @using (Html.BeginForm())
+    {
+        <div class="form-horizontal">
+            <hr/>
+            @*//add parm 'text-danger' to highlight errors in red, "" no additional message, false to display all errors at once *@
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(m => m.FirstName, htmlAttributes: new {@class = "control-lable col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Surname,htmlAttributes: new { @class = "control-lable col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.Surname, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="col-sm-offset-2 col-sm-11">
+                @Html.Label("Male")
+                @Html.RadioButtonFor(m => m.M_F, "Male", new {value = "Male" })
+                @Html.Label("Female")
+                @Html.RadioButtonFor(m => m.M_F, "Female", new {value = "Female" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Country, htmlAttributes: new { @class = "control-lable col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.Country, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.DateOfBirth, htmlAttributes: new { @class = "control-lable col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            
+                <div class="form-group">
+                    @Html.LabelFor(m => m.AusOpenYYYY, "Australian Open", htmlAttributes: new { @class = "control-lable col-md-2" } )
+                    <div class="col-md-10">
+                        @Html.EditorFor(m => m.AusOpenYYYY, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FreOpenYYYY, "French Open", htmlAttributes: new { @class = "control-lable col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(m => m.FreOpenYYYY, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.WimOpenYYYY, "Wimbledon", htmlAttributes: new { @class = "control-lable col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(m => m.WimOpenYYYY, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.USOpenYYYY, "US Open", htmlAttributes: new { @class = "control-lable col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(m => m.USOpenYYYY, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ImageUrl, htmlAttributes: new { @class = "control-lable col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(m => m.ImageUrl, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-default" value="Add Player" />
+                </div>
+            </div>
+            </div>
+    }
+
+        
+
+@Html.ActionLink("Back to List", "Index")
